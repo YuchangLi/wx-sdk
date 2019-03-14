@@ -7,8 +7,6 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.github.wxpay.sdk.WXPayConstants.SignType;
-
 public class PayTest {
   private WXPayConfig config;
   private WXPay wxpay;

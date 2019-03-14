@@ -1,5 +1,10 @@
 package com.github.wxpay.sdk;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -13,11 +18,6 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.BasicHttpClientConnectionManager;
 import org.apache.http.util.EntityUtils;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadFactory;
 
 /**
  * 交易保障
@@ -205,24 +205,24 @@ public class WXPayReport {
     }
 
 
-    @Deprecated
-    private void reportSync(final String data) throws Exception {
-        httpRequest(data, DEFAULT_CONNECT_TIMEOUT_MS, DEFAULT_READ_TIMEOUT_MS);
-    }
-
-    @Deprecated
-    private void reportAsync(final String data) throws Exception {
-        new Thread(new Runnable() {
-            public void run() {
-                try {
-                    httpRequest(data, DEFAULT_CONNECT_TIMEOUT_MS, DEFAULT_READ_TIMEOUT_MS);
-                }
-                catch (Exception ex) {
-                    WXPayUtil.getLogger().warn("report fail. reason: {}", ex.getMessage());
-                }
-            }
-        }).start();
-    }
+//    @Deprecated
+//    private void reportSync(final String data) throws Exception {
+//        httpRequest(data, DEFAULT_CONNECT_TIMEOUT_MS, DEFAULT_READ_TIMEOUT_MS);
+//    }
+//
+//    @Deprecated
+//    private void reportAsync(final String data) throws Exception {
+//        new Thread(new Runnable() {
+//            public void run() {
+//                try {
+//                    httpRequest(data, DEFAULT_CONNECT_TIMEOUT_MS, DEFAULT_READ_TIMEOUT_MS);
+//                }
+//                catch (Exception ex) {
+//                    WXPayUtil.getLogger().warn("report fail. reason: {}", ex.getMessage());
+//                }
+//            }
+//        }).start();
+//    }
 
     /**
      * http 请求
