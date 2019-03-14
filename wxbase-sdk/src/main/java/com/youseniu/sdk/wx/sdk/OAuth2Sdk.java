@@ -46,7 +46,7 @@ public class OAuth2Sdk {
    * @throws AccessTokenException AccessTokenInfo
    */
   public AccessTokenInfo getAccessToken(String code) throws AccessTokenException {
-    String url = String.format(Constants.OAUTH2_ACCESS_TOKEN_URL, "wx28420642520a26ec", "a0e6433cb2fd5e72636c35154703b6df", code);
+    String url = String.format(Constants.OAUTH2_ACCESS_TOKEN_URL, this.wxConfig.getAppid(), this.wxConfig.getSecret(), code);
     try {
       String jsonStr = HttpUtils.doGet(url);
       AccessTokenInfo accessToken = JsonUtils.parse(jsonStr, AccessTokenInfo.class);
