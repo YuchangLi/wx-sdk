@@ -17,7 +17,7 @@ public class PayTest {
 //       沙箱
 //      this.config = new WXPayConfigDefault("wxc0eb64163b67964f", "1263875401", "c7b6f93ed25005c9bdca390bf29483e4", null, "api.mch.weixin.qq.com");
       // 线上
-    this.config = new WXPayConfigDefault("wx28420642520a26ec", "1528406281", "X2PLoUchpg2wmHaVVlhwM375ZcxUJjXu", null, "api.mch.weixin.qq.com");
+    this.config = new WXPayConfigDefault("wx28420642520a26ec", "1528406281", "youseniu201820192020xinyuanbizzz", null, "api.mch.weixin.qq.com");
       this.wxpay = new WXPay(this.config, "http://api-dev.youseniu.com/portal/userapi/wallet/wxPayNofity", false, false);
     } catch (Exception e) {
       e.printStackTrace();
@@ -53,15 +53,15 @@ public class PayTest {
     try {
       Map<String, String> data = new HashMap<String, String>();
       data.put("body", "腾讯充值中心-QQ会员充值");
-      data.put("out_trade_no", "201609091059590000001211");
+      data.put("out_trade_no", "201009091059590000001");
 //      data.put("device_info", "WEB");
 //      data.put("fee_type", "CNY");
       data.put("total_fee", "1");
-      data.put("spbill_create_ip", "47.94.95.155");
+      data.put("spbill_create_ip", "1.119.152.198");
 //      data.put("notify_url", "http://www.example.com/wxpay/notify");
-      data.put("trade_type", "JSAPI");  // 此处指定为扫码支付
+      data.put("trade_type", "MWEB");  // 此处指定为扫码支付
 //      data.put("product_id", "12");
-      data.put("openid", "oTaZz51gBk6HcuHbHwEnV4Spiu-o");
+//      data.put("openid", "oTaZz51gBk6HcuHbHwEnV4Spiu-o");
       Map<String, String> resp = wxpay.unifiedOrder(data);
       System.out.println(resp);
       System.out.println(resp.get("prepay_id"));
@@ -74,7 +74,7 @@ public class PayTest {
   public void testOrderQuery() {
     try {
       Map<String, String> data = new HashMap<String, String>();
-      data.put("out_trade_no", "20190308150413207545210");
+      data.put("out_trade_no", "2019032914130265223317");
       Map<String, String> resp = wxpay.orderQuery(data);
       System.out.println(resp);
     } catch (Exception e) {
