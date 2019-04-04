@@ -26,7 +26,8 @@ public class JssdkSdkTest {
   @Test
   public void testGetSign() throws JsapiTicketException, AccessTokenException {
     String url = "http://www.baidu.com";
-    JsapiTicket ticket = this.jssdkSdk.getSign(url , this.baseAccessTokenSdk.getAccessToken());
+    String jsticket = this.jssdkSdk.getJsapiTicket(this.baseAccessTokenSdk.getAccessToken());
+    JsapiTicket ticket = this.jssdkSdk.getSign(url, jsticket);
     System.out.println("ticket = "+JsonUtils.toString(ticket));
   }
   

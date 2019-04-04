@@ -37,7 +37,7 @@ public class JssdkSdk {
    * @return String
    * @throws JsapiTicketException 
    */
-  private String getJsapiTicket(String baseToken) throws JsapiTicketException {
+  public String getJsapiTicket(String baseToken) throws JsapiTicketException {
     //是否缓存存在
 //    String jsapiTicket = this.cachedService.get(Constants.JSAPI_TICKET_CACHE_KEY);
 //    if(StringUtil.isNotBlank(jsapiTicket)) {
@@ -68,11 +68,11 @@ public class JssdkSdk {
    * @return
    * @throws JsapiTicketException 
    */
-  public JsapiTicket getSign(String url, String baseToken) throws JsapiTicketException {
+  public JsapiTicket getSign(String url, String jsapiTicket) throws JsapiTicketException {
     Long timestamp = Calendar.getInstance().getTime().getTime()/1000l;
     String noncestr = this.getUUID(16);
     String signature = null;
-    String jsapiTicket = this.getJsapiTicket(baseToken);
+//    String jsapiTicket = this.getJsapiTicket(baseToken);
     try {
       signature = SHA1Util.genWithAmple("jsapi_ticket=" + jsapiTicket, "noncestr=" + noncestr,"timestamp=" + timestamp, "url=" + url);
     } catch (NoSuchAlgorithmException e) {
