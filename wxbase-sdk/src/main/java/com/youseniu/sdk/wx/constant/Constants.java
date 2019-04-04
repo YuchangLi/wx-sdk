@@ -19,4 +19,14 @@ public abstract interface Constants {
    */
   public static final String OAUTH2_USERINFO_URL = "https://api.weixin.qq.com/sns/userinfo?"
       + "access_token=%s&openid=%s&lang=zh_CN";
+
+  /**
+   * 获取普通access_token地址（不同于网页授权access_token）
+   */
+  public static final String BASE_ACCESS_TOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s";
+
+  /**
+   * jsapi_ticket获取地址
+   */
+  public static final String JSAPI_TICKET_URL = "https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=%s&type=jsapi";
 }

@@ -53,13 +53,13 @@ public class PayTest {
     try {
       Map<String, String> data = new HashMap<String, String>();
       data.put("body", "腾讯充值中心-QQ会员充值");
-      data.put("out_trade_no", "201009091059590000001");
+      data.put("out_trade_no", "2010090910595900000012");
 //      data.put("device_info", "WEB");
 //      data.put("fee_type", "CNY");
       data.put("total_fee", "1");
       data.put("spbill_create_ip", "1.119.152.198");
 //      data.put("notify_url", "http://www.example.com/wxpay/notify");
-      data.put("trade_type", "MWEB");  // 此处指定为扫码支付
+      data.put("trade_type", "NATIVE");  // 此处指定为扫码支付
 //      data.put("product_id", "12");
 //      data.put("openid", "oTaZz51gBk6HcuHbHwEnV4Spiu-o");
       Map<String, String> resp = wxpay.unifiedOrder(data);
@@ -74,7 +74,7 @@ public class PayTest {
   public void testOrderQuery() {
     try {
       Map<String, String> data = new HashMap<String, String>();
-      data.put("out_trade_no", "2019032914130265223317");
+      data.put("out_trade_no", "20190329194331173496655");
       Map<String, String> resp = wxpay.orderQuery(data);
       System.out.println(resp);
     } catch (Exception e) {
